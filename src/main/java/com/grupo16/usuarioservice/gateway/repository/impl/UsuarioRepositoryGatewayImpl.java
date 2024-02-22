@@ -1,5 +1,7 @@
 package com.grupo16.usuarioservice.gateway.repository.impl;
 
+import java.util.Optional;
+
 import org.springframework.stereotype.Component;
 
 import com.grupo16.usuarioservice.domain.Usuario;
@@ -12,6 +14,12 @@ public class UsuarioRepositoryGatewayImpl implements UsuarioRepositoryGateway {
 	public String getToken(Usuario usuario) {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	@Override
+	public Optional<Usuario> get(Usuario usuario) {
+		// TODO Auto-generated method stub
+		return Optional.empty();
 	}
 
 }
