@@ -28,7 +28,7 @@ public class UsuarioJson {
 				.id(id)
 				.login(login)
 				.password(password)
-				.role(UserRole.valueOf(role))
+//				.role(UserRole.valueOf(role))
 				.build();
 	}
 

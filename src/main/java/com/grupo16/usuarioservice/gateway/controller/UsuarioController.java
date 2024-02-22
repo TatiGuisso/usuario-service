@@ -21,7 +21,7 @@ public class UsuarioController {
 	
 	private LoginUseCase loginUseCase;
 	
-	@PostMapping
+	@PostMapping("login")
 	public String login(
 			@Valid
 			@RequestBody UsuarioJson usuarioJson) {
