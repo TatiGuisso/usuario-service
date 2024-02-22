@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.grupo16.usuarioservice.domain.Usuario;
 import com.grupo16.usuarioservice.gateway.controller.json.UsuarioJson;
+import com.grupo16.usuarioservice.gateway.controller.json.UsuarioResponseJson;
 import com.grupo16.usuarioservice.usecase.LoginUseCase;
 
 import jakarta.validation.Valid;
@@ -22,7 +23,7 @@ public class UsuarioController {
 	private LoginUseCase loginUseCase;
 	
 	@PostMapping("login")
-	public String login(
+	public UsuarioResponseJson login(
 			@Valid
 			@RequestBody UsuarioJson usuarioJson) {
 		log.trace("Start usuarioJson={}", usuarioJson);
@@ -32,7 +33,7 @@ public class UsuarioController {
 		String token = loginUseCase.getToken(usuario);
 		
 		log.trace("End token={}", token);
-		return token;
+		return new UsuarioResponseJson(token);
 	}
 
 }
