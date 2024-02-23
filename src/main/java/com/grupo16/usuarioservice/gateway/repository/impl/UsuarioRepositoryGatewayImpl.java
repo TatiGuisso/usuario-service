@@ -16,13 +16,6 @@ import lombok.AllArgsConstructor;
 public class UsuarioRepositoryGatewayImpl implements UsuarioRepositoryGateway {
 
 	private UsuarioRepository usuarioRepository;
-	
-	@Override
-	public String getToken(Usuario usuario) {
-		// TODO: implementar metodo.
-		
-		return "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c";
-	}
 
 	@Override
 	public Optional<Usuario> get(Usuario usuario) {

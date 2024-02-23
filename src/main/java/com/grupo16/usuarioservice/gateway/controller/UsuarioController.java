@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.grupo16.usuarioservice.domain.Usuario;
 import com.grupo16.usuarioservice.gateway.controller.json.UsuarioJson;
 import com.grupo16.usuarioservice.gateway.controller.json.UsuarioResponseJson;
-import com.grupo16.usuarioservice.usecase.LoginUseCase;
+import com.grupo16.usuarioservice.usecase.ObterTokenUseCase;
 
 import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
@@ -20,7 +20,7 @@ import lombok.extern.slf4j.Slf4j;
 @AllArgsConstructor
 public class UsuarioController {
 	
-	private LoginUseCase loginUseCase;
+	private ObterTokenUseCase loginUseCase;
 	
 	@PostMapping("login")
 	public UsuarioResponseJson login(
