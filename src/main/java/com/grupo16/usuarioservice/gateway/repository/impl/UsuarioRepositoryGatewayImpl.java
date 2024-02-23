@@ -6,10 +6,17 @@ import org.springframework.stereotype.Component;
 
 import com.grupo16.usuarioservice.domain.Usuario;
 import com.grupo16.usuarioservice.gateway.UsuarioRepositoryGateway;
+import com.grupo16.usuarioservice.gateway.repository.jpa.UsuarioRepository;
+import com.grupo16.usuarioservice.gateway.repository.jpa.entity.UsuarioEntity;
+
+import lombok.AllArgsConstructor;
 
 @Component
+@AllArgsConstructor
 public class UsuarioRepositoryGatewayImpl implements UsuarioRepositoryGateway {
 
+	private UsuarioRepository usuarioRepository;
+	
 	@Override
 	public String getToken(Usuario usuario) {
 		// TODO: implementar metodo.
@@ -19,9 +26,16 @@ public class UsuarioRepositoryGatewayImpl implements UsuarioRepositoryGateway {
 
 	@Override
 	public Optional<Usuario> get(Usuario usuario) {
-		// TODO: implementar metodo.
+		Optional<Usuario> usuarioOp = Optional.empty();		
 		
-		return Optional.of(Usuario.builder().id(1L).login("tati@gmail.com").password("123654").build());
+		Optional<UsuarioEntity> usuarioEntityOp = usuarioRepository.findByLogin(usuario.getLogin());
+		
+		if(usuarioEntityOp.isPresent()) {
+			Usuario usuarioFound = usuarioEntityOp.get().mapperToDomain();
+			usuarioOp = Optional.of(usuarioFound);
+		}
+		
+		return usuarioOp;
 	}
 
 }
