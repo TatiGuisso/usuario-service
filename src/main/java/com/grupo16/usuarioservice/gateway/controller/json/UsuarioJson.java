@@ -25,12 +25,10 @@ public class UsuarioJson {
 	
 	public Usuario mapperToDomain() {
 		return Usuario.builder()
-//				.id(id)
-				.id(1L)
+				.id(id)
 				.login(login)
 				.password(password)
-//				.role(role == null ? null : (UserRole.valueOf(role))) se nao tiver deve ser user
-				.role(UserRole.USER)
+				.role(role == null ? UserRole.USER : UserRole.valueOf(role))
 				.build();
 	}
 

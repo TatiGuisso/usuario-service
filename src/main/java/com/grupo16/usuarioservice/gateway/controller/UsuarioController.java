@@ -22,6 +22,8 @@ public class UsuarioController {
 	
 	private ObterTokenUseCase loginUseCase;
 	
+	private CriarUsuarioUseCase criarUsuarioUseCase;
+	
 	@PostMapping("login")
 	public UsuarioResponseJson login(
 			@Valid
@@ -34,6 +36,20 @@ public class UsuarioController {
 		
 		log.trace("End token={}", token);
 		return new UsuarioResponseJson(token);
+	}
+	
+	@PostMapping
+	public Long salvar(
+			@Valid
+			@RequestBody UsuarioJson usuarioJson) {
+		log.trace("Start usuarioJson={}", usuarioJson);
+		
+		Usuario usuario = usuarioJson.mapperToDomain();
+		
+		Long idUsuario = criarUsuarioUseCase.salvar(usuario);
+		
+		log.trace("End idUsuario={}", idUsuario);
+		return idUsuario;
 	}
 
 }
