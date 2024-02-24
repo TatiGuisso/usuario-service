@@ -1,4 +1,4 @@
-package com.grupo16.usuarioservice.gateway.exception;
+package com.grupo16.usuarioservice.usecase.exception;
 
 import com.grupo16.usuarioservice.exception.SystemBaseException;
 

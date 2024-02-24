@@ -18,7 +18,7 @@ public class UsuarioRepositoryGatewayImpl implements UsuarioRepositoryGateway {
 	private UsuarioRepository usuarioRepository;
 
 	@Override
-	public Optional<Usuario> get(Usuario usuario) {
+	public Optional<Usuario> obterPorLogin(Usuario usuario) {
 		Optional<Usuario> usuarioOp = Optional.empty();		
 		
 		Optional<UsuarioEntity> usuarioEntityOp = usuarioRepository.findByLogin(usuario.getLogin());
@@ -29,6 +29,14 @@ public class UsuarioRepositoryGatewayImpl implements UsuarioRepositoryGateway {
 		}
 		
 		return usuarioOp;
+	}
+
+	@Override
+	public Long salvar(Usuario usuario) {
+		
+		UsuarioEntity usuarioEntity = new UsuarioEntity(usuario);
+		
+		return usuarioRepository.save(usuarioEntity).getId();
 	}
 
 }

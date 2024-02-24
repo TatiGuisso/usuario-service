@@ -6,6 +6,8 @@ import com.grupo16.usuarioservice.domain.Usuario;
 
 public interface UsuarioRepositoryGateway {
 
-	Optional<Usuario> get(Usuario usuario);
+	Optional<Usuario> obterPorLogin(Usuario usuario);
+
+	Long salvar(Usuario usuario);
 
 }

@@ -6,7 +6,7 @@ import org.springframework.stereotype.Service;
 
 import com.grupo16.usuarioservice.domain.Usuario;
 import com.grupo16.usuarioservice.gateway.UsuarioRepositoryGateway;
-import com.grupo16.usuarioservice.gateway.exception.UsuarioNaoEncontradoException;
+import com.grupo16.usuarioservice.usecase.exception.UsuarioNaoEncontradoException;
 
 import lombok.AllArgsConstructor;
 
@@ -16,9 +16,9 @@ public class ObterUsuarioUseCase {
 	
 	private UsuarioRepositoryGateway usuarioRepositoryGateway;
 
-	public Usuario get(Usuario usuario) {
+	public Usuario obterPorLogin(Usuario usuario) {
 		
-		Optional<Usuario> usuarioOp = usuarioRepositoryGateway.get(usuario);
+		Optional<Usuario> usuarioOp = usuarioRepositoryGateway.obterPorLogin(usuario);
 		
 		if(usuarioOp.isEmpty()) {
 			throw new UsuarioNaoEncontradoException();

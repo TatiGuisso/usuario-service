@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.grupo16.usuarioservice.domain.Usuario;
 import com.grupo16.usuarioservice.gateway.controller.json.UsuarioJson;
 import com.grupo16.usuarioservice.gateway.controller.json.UsuarioResponseJson;
+import com.grupo16.usuarioservice.usecase.CriarUsuarioUseCase;
 import com.grupo16.usuarioservice.usecase.ObterTokenUseCase;
 
 import jakarta.validation.Valid;
