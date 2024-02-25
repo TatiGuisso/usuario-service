@@ -1,4 +1,4 @@
-package com.grupo16.usuarioservice.gateway.repository.impl;
+package com.grupo16.usuarioservice.gateway.repository.mysql;
 
 import java.util.Optional;
 
