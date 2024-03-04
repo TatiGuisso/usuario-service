@@ -13,7 +13,7 @@ import lombok.AllArgsConstructor;
 
 @Component
 @AllArgsConstructor
-public class UsuarioRepositoryGatewayImpl implements UsuarioRepositoryGateway {
+public class UsuarioMySqlGateway implements UsuarioRepositoryGateway {
 
 	private UsuarioRepository usuarioRepository;
 
