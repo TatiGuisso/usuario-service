@@ -2,6 +2,7 @@ package com.grupo16.usuarioservice.gateway.repository.mysql;
 
 import java.util.Optional;
 
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Component;
 
 import com.grupo16.usuarioservice.domain.Usuario;
@@ -34,7 +35,9 @@ public class UsuarioMySqlGateway implements UsuarioRepositoryGateway {
 	@Override
 	public Long salvar(Usuario usuario) {
 		
-		UsuarioEntity usuarioEntity = new UsuarioEntity(usuario);
+		String encryptedPassword = new BCryptPasswordEncoder().encode(usuario.getPassword());
+		
+		UsuarioEntity usuarioEntity = new UsuarioEntity(usuario, encryptedPassword);
 		
 		return usuarioRepository.save(usuarioEntity).getId();
 	}

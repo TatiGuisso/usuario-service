@@ -9,8 +9,10 @@ import com.grupo16.usuarioservice.gateway.UsuarioRepositoryGateway;
 import com.grupo16.usuarioservice.usecase.exception.UsuarioJaExisteException;
 
 import lombok.AllArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 
 @Service
+@Slf4j
 @AllArgsConstructor
 public class CriarUsuarioUseCase {
 	
@@ -21,6 +23,7 @@ public class CriarUsuarioUseCase {
 		Optional<Usuario> usuarioOp = usuarioRepositoryGateway.obterPorLogin(usuario);
 		
 		if(usuarioOp.isPresent()) {
+			log.warn("Usuário ja existe com login informado. {}", usuario.getLogin());
 			throw new UsuarioJaExisteException();
 		}
 		
